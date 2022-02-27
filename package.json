@@ -1,0 +1,26 @@
+{
+  "name": "bg-team-profile",
+  "version": "1.0.0",
+  "description": "Uses NodeJS to prompt a user for information about employees on a software engineering team, then generates an HTML webpage.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BGrowcott/bg-team-profile.git"
+  },
+  "keywords": [],
+  "author": "Ben Growcott",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BGrowcott/bg-team-profile/issues"
+  },
+  "homepage": "https://github.com/BGrowcott/bg-team-profile#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
