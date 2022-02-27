@@ -8,6 +8,7 @@ const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 const inquirerArray = [];
 
+// get users name for a personal touch
 const getUserName = () => {
   return inquirer.prompt([
     {
@@ -26,6 +27,7 @@ const getUserName = () => {
   ]);
 };
 
+//manager questions
 const managerInfo = (userName) => {
   return inquirer.prompt([
     {
@@ -86,7 +88,7 @@ const managerInfo = (userName) => {
     },
   ]);
 };
-
+// engineer questions
 const engineerInfo = () => {
   return inquirer.prompt([
     {
@@ -145,7 +147,7 @@ const engineerInfo = () => {
     },
   ]);
 };
-
+// intern questions
 const internInfo = () => {
   return inquirer.prompt([
     {
@@ -205,11 +207,7 @@ const internInfo = () => {
   ]);
 };
 
-// const generateHTML = ({}) =>
-//   `
-//     HTML HERE
-//     `;
-
+// initialize inquirer prompts
 const init = () => {
   getUserName()
     .then(managerInfo)
@@ -220,6 +218,7 @@ const init = () => {
 
 init();
 
+// recursive function for adding more team members
 function addAnother(answers) {
   inquirerArray.push(answers);
   return new Promise((resolve) => {
@@ -235,6 +234,7 @@ function addAnother(answers) {
   });
 }
 
+// function that takes inquirer data and makes employee objects and puts them into an array
 const employeeArray = [];
 function makeObjects(array) {
   array.forEach((object) => {

@@ -1,0 +1,29 @@
+.employeeCard{
+    width: 200px;
+    box-shadow: 2px 2px 10px darkslategray;
+    margin: auto;
+    margin-top: 10px;
+    line-height: 160%;
+    border-radius: 10px;
+    background-color: darkslategray;
+    font-size: larger;
+}
+
+.cardHeader{
+    color: aliceblue;
+    padding: 10px;
+}
+
+.cardBody{
+    background-color: white;
+    padding: 10px;
+}
+
+.cardBody p{
+    background-color: whitesmoke;
+    padding: 5px;
+}
+
+.cardFooter{
+    height: 10px;
+}
