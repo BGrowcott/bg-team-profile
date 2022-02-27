@@ -213,6 +213,9 @@ const init = () => {
     .then(managerInfo)
     .then(addAnother)
     .then(makeObjects)
+    .then((employeeArray) =>
+      fs.writeFileSync("./dist/index.html", generateHtml(employeeArray))
+    )
     .catch((err) => console.error(err));
 };
 
@@ -252,12 +255,49 @@ function makeObjects(array) {
       );
     }
     if (Object.keys(object)[0] === "internName") {
-      let { internName, internId, internEmail, internSchool } =
-        object;
+      let { internName, internId, internEmail, internSchool } = object;
       employeeArray.push(
         new Intern(internName, internId, internEmail, internSchool)
       );
     }
   });
   console.log(employeeArray);
+  return employeeArray;
+}
+
+function generateHtml(array) {
+  return `
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Team Profile</title>
+  </head>
+  <body>
+    <header id="pageHeader">
+        <h1>My Team</h1>
+    </header>
+    <main>
+    <!-- Employee cards -->
+
+        <div class="employeeCard">
+            <header class="cardHeader">
+                <h2>${array[0].getName()}</h2>
+                <p>Job Role here</p>
+            </header>
+            <div class="cardBody">
+                <p>ID here</p>
+                <p>Email here</p>
+                <p>Other here</p>
+            </div>
+            <footer class="cardFooter"></footer>
+        </div>
+    </main>
+  </body>
+</html>
+    `;
 }
