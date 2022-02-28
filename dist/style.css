@@ -1,6 +1,25 @@
+#pageHeader{
+    box-shadow: 0px 0px 10px rgb(150, 155, 155);
+}
+
+h1{
+    text-align: center;
+    font-size: 300%;
+    padding: 10px;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
 .employeeCard{
-    width: 200px;
-    box-shadow: 2px 2px 10px darkslategray;
+    width: 250px;
+    box-shadow: 2px 2px 10px rgb(150, 155, 155);
     margin: auto;
     margin-top: 10px;
     line-height: 160%;
@@ -12,6 +31,16 @@
 .cardHeader{
     color: aliceblue;
     padding: 10px;
+}
+
+.jobRole{
+    display: flex;
+    align-items: center;
+}
+
+img {
+    width: 25px;
+    margin-right: 5px;
 }
 
 .cardBody{

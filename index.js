@@ -216,6 +216,7 @@ const init = () => {
     .then((employeeArray) =>
       fs.writeFileSync("./dist/index.html", generateHtml(employeeArray))
     )
+    .then(() => console.log("Success! A html file with your team has now been created."))
     .catch((err) => console.error(err));
 };
 
@@ -261,13 +262,12 @@ function makeObjects(array) {
       );
     }
   });
-  console.log(employeeArray);
   return employeeArray;
 }
 
 function generateHtml(array) {
   return `
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -282,22 +282,51 @@ function generateHtml(array) {
         <h1>My Team</h1>
     </header>
     <main>
-    <!-- Employee cards -->
-
-        <div class="employeeCard">
-            <header class="cardHeader">
-                <h2>${array[0].getName()}</h2>
-                <p>Job Role here</p>
-            </header>
-            <div class="cardBody">
-                <p>ID here</p>
-                <p>Email here</p>
-                <p>Other here</p>
-            </div>
-            <footer class="cardFooter"></footer>
-        </div>
+        <!-- Employee cards -->
+        ${generateCards(array)}
     </main>
   </body>
 </html>
     `;
+}
+
+function generateCards(array) {
+  let htmlString = "";
+  for (const employee of array) {
+    htmlString += `
+        <div class="employeeCard">
+            <header class="cardHeader">
+                <h2>${employee.getName()}</h2>
+                <div class="jobRole">
+                    ${employeeType(employee, "image")}
+                    <p>${employee.getRole()}</p>
+                </div>
+            </header>
+            <div class="cardBody">
+                <p>ID: ${employee.getId()}</p>
+                <p><a href=${employee.getEmail()}>Email</a></p>
+                <p>${employeeType(employee, "other")}</p>
+            </div>
+            <footer class="cardFooter"></footer>
+        </div>\n`;
+  }
+  return htmlString;
+}
+
+function employeeType(employee, param) {
+  if (employee instanceof Manager) {
+    return param === "other"
+      ? `Office number: ${employee.officeNumber}`
+      : `<img src="images/manager.png" alt="manager graphic">`;
+  }
+  if (employee instanceof Engineer) {
+    return param === "other"
+      ? `<a href=${employee.getGithub()} target="_blank">GitHub</a>`
+      : `<img src="images/gear.png" alt="engineer graphic">`;
+  }
+  if (employee instanceof Intern) {
+    return param === "other"
+      ? employee.getSchool()
+      : `<img src="images/student.png" alt="intern graphic">`;
+  }
 }
