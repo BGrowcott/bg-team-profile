@@ -1,3 +1,7 @@
+html{
+    background-color: rgb(247, 247, 247);
+}
+
 #pageHeader{
     box-shadow: 0px 0px 10px rgb(150, 155, 155);
 }
@@ -24,7 +28,7 @@ main{
     margin-top: 10px;
     line-height: 160%;
     border-radius: 10px;
-    background-color: darkslategray;
+    background-color: rgb(48, 121, 126);
     font-size: larger;
 }
 

@@ -84,7 +84,7 @@ const managerInfo = (userName) => {
         "Add an intern",
         "Finish building your team",
       ],
-      message: chalk.greenBright(`Would you like to add another team member?`),
+      message: chalk.greenBright(`All done for the manager ${userName.name}. Would you like to add another team member?`),
     },
   ]);
 };
@@ -238,7 +238,7 @@ function addAnother(answers) {
   });
 }
 
-// function that takes inquirer data and makes employee objects and puts them into an array
+// function that takes inquirer data and makes Employee objects and puts them into an array
 const employeeArray = [];
 function makeObjects(array) {
   array.forEach((object) => {
@@ -265,6 +265,7 @@ function makeObjects(array) {
   return employeeArray;
 }
 
+// function for creating the html string
 function generateHtml(array) {
   return `
 <!DOCTYPE html>
@@ -289,9 +290,9 @@ function generateHtml(array) {
 </html>
     `;
 }
-
+// creates html cards for each employee object in the array
 function generateCards(array) {
-  let htmlString = "";
+  let htmlString;
   for (const employee of array) {
     htmlString += `
         <div class="employeeCard">
@@ -304,7 +305,7 @@ function generateCards(array) {
             </header>
             <div class="cardBody">
                 <p>ID: ${employee.getId()}</p>
-                <p><a href=${employee.getEmail()}>Email</a></p>
+                <p><a href=mailto:${employee.getEmail()}>Email</a></p>
                 <p>${employeeType(employee, "other")}</p>
             </div>
             <footer class="cardFooter"></footer>
@@ -312,7 +313,7 @@ function generateCards(array) {
   }
   return htmlString;
 }
-
+// checks the employee types and returns the appropriate value/method
 function employeeType(employee, param) {
   if (employee instanceof Manager) {
     return param === "other"
@@ -321,12 +322,12 @@ function employeeType(employee, param) {
   }
   if (employee instanceof Engineer) {
     return param === "other"
-      ? `<a href=${employee.getGithub()} target="_blank">GitHub</a>`
+      ? `<a href=https://github.com/${employee.getGithub()} target="_blank">GitHub Profile</a>`
       : `<img src="images/gear.png" alt="engineer graphic">`;
   }
   if (employee instanceof Intern) {
     return param === "other"
-      ? employee.getSchool()
+      ? `School: ${employee.getSchool()}`
       : `<img src="images/student.png" alt="intern graphic">`;
   }
 }
