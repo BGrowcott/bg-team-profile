@@ -292,7 +292,7 @@ function generateHtml(array) {
 }
 // creates html cards for each employee object in the array
 function generateCards(array) {
-  let htmlString;
+  let htmlString = '';
   for (const employee of array) {
     htmlString += `
         <div class="employeeCard">
@@ -304,7 +304,7 @@ function generateCards(array) {
                 </div>
             </header>
             <div class="cardBody">
-                <p>ID: ${employee.getId()}</p>
+                <p>ID: <b>${employee.getId()}</b></p>
                 <p><a href=mailto:${employee.getEmail()}>Email</a></p>
                 <p>${employeeType(employee, "other")}</p>
             </div>
@@ -317,7 +317,7 @@ function generateCards(array) {
 function employeeType(employee, param) {
   if (employee instanceof Manager) {
     return param === "other"
-      ? `Office number: ${employee.officeNumber}`
+      ? `Office number: <b>${employee.officeNumber}</b>`
       : `<img src="images/manager.png" alt="manager graphic">`;
   }
   if (employee instanceof Engineer) {
@@ -327,7 +327,7 @@ function employeeType(employee, param) {
   }
   if (employee instanceof Intern) {
     return param === "other"
-      ? `School: ${employee.getSchool()}`
+      ? `School: <b>${employee.getSchool()}</b>`
       : `<img src="images/student.png" alt="intern graphic">`;
   }
 }
