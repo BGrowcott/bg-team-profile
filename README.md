@@ -40,7 +40,7 @@ Please check out this video of the application in action - [Video](https://drive
 ### Screenshot of sample HTML
 
 ![screenshot of sample HTML](dist/images/samplescreenshot.png)
-
+The sample can be found in the dist folder.
 ## License
 
 This project is covered under the MIT License.
