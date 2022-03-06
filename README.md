@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Team Profile Generator
 
 ## Description
@@ -33,10 +35,10 @@ Node.js command-line application that takes in information about employees on a 
     - Clicking on a team member's email opens in the user's default email programme.
     - Clicking on a Github username open the profile in a new tab.
 
-Please check out this video of the application in action - [!Video](https://docs.google.com/presentation/d/1dScqT3GTBeET7FbYdPSYF4xg2H-bsaGPYu9vLUBdqcw/edit?usp=sharing)
+Please check out this video of the application in action - [Video](https://docs.google.com/presentation/d/1dScqT3GTBeET7FbYdPSYF4xg2H-bsaGPYu9vLUBdqcw/edit?usp=sharing)
 ## License
 
-n/a
+This project is covered under the MIT License.
 
 ## Contributing
 
