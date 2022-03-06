@@ -33,8 +33,7 @@ Node.js command-line application that takes in information about employees on a 
     - Clicking on a team member's email opens in the user's default email programme.
     - Clicking on a Github username open the profile in a new tab.
 
-Please check out this video of the application in action - 
-
+Please check out this video of the application in action - [!Video](https://docs.google.com/presentation/d/1dScqT3GTBeET7FbYdPSYF4xg2H-bsaGPYu9vLUBdqcw/edit?usp=sharing)
 ## License
 
 n/a
@@ -44,6 +43,8 @@ n/a
 Ben Growcott - [GitHub](https://github.com/BGrowcott)
 
 ## Tests
+
+There is a test suite for each employee class. Tests are run using Jest via command: npm test
 
 ## Questions
 

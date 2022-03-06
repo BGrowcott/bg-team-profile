@@ -1,8 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const chalk = require("chalk");
-const { resolve } = require("path");
-const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
@@ -84,7 +82,9 @@ const managerInfo = (userName) => {
         "Add an intern",
         "Finish building your team",
       ],
-      message: chalk.greenBright(`All done for the manager ${userName.name}. Would you like to add another team member?`),
+      message: chalk.greenBright(
+        `All done for the manager ${userName.name}. Would you like to add another team member?`
+      ),
     },
   ]);
 };
@@ -216,7 +216,9 @@ const init = () => {
     .then((employeeArray) =>
       fs.writeFileSync("./dist/index.html", generateHtml(employeeArray))
     )
-    .then(() => console.log("Success! A html file with your team has now been created."))
+    .then(() =>
+      console.log("Success! A html file with your team has now been created.")
+    )
     .catch((err) => console.error(err));
 };
 
@@ -292,7 +294,7 @@ function generateHtml(array) {
 }
 // creates html cards for each employee object in the array
 function generateCards(array) {
-  let htmlString = '';
+  let htmlString = "";
   for (const employee of array) {
     htmlString += `
         <div class="employeeCard">

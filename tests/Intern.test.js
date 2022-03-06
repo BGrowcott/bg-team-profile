@@ -1,7 +1,6 @@
-const Employee = require("../lib/Employee");
 const Intern = require("../lib/Intern");
 
-describe("Employee Class", () => {
+describe("Intern Class", () => {
   const intern = new Intern("Bert Bondie", 2, "bert@bondie.com", 'Bondie Academy');
 
   describe("GetName function", () => {
