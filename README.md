@@ -36,6 +36,11 @@ Node.js command-line application that takes in information about employees on a 
     - Clicking on a Github username open the profile in a new tab.
 
 Please check out this video of the application in action - [Video](https://drive.google.com/file/d/1it2xqKNf7GNhELC38-EbI44I1DlBEzLS/view?usp=sharing)
+
+### Screenshot of sample HTML
+
+![screenshot of sample HTML](dist/images/samplescreenshot.png)
+
 ## License
 
 This project is covered under the MIT License.
